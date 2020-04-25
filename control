@@ -1,0 +1,9 @@
+Package: com.p2kdev.smartpower
+Name: SmartPower
+Depends: mobilesubstrate
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Make Low Power mode Smart!
+Maintainer: P2KDev <p2kdev@gmail.com>
+Author: P2KDev <p2kdev@gmail.com>
+Section: Tweaks
