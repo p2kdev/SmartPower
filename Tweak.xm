@@ -18,6 +18,7 @@
 
 static bool lpmThresholdEnabled = YES;
 static int lpmThreshold = 40;
+static int lpmOffThreshold = 79;
 static bool lpmChargingEnabled = YES;
 static bool wasLPMAutoTurnedOn = NO;
 
@@ -59,12 +60,18 @@ static bool wasLPMAutoTurnedOn = NO;
 
     int currentbat = (int)([device batteryLevel] * 100);
 
+    //Check if threshold has reached & also make sure we have not turned on LPM already. This is to avoid turning on lpm even if the user turned it off later
     if (currentbat <= lpmThreshold && !wasLPMAutoTurnedOn)
     {
       [[%c(_CDBatterySaver) batterySaver] setMode:1];
       wasLPMAutoTurnedOn = YES;
     }
 
+    //Turn off LPM at the desired percentage
+    if (currentbat == lpmOffThreshold)
+      [[%c(_CDBatterySaver) batterySaver] setMode:0];
+
+    //Reset our LPM tracker once the battery has charged above the threshold
     if (currentbat > lpmThreshold)
       wasLPMAutoTurnedOn = NO;
   }
@@ -78,6 +85,7 @@ static void reloadSettings() {
 	if(prefs)
 	{
 		lpmThreshold = [prefs objectForKey:@"lpmThreshold"] ? [[prefs objectForKey:@"lpmThreshold"] intValue] : lpmThreshold;
+    lpmOffThreshold = [prefs objectForKey:@"lpmOffThreshold"] ? [[prefs objectForKey:@"lpmOffThreshold"] intValue] : lpmOffThreshold;
 		lpmThresholdEnabled = [prefs objectForKey:@"lpmOnThreshold"] ? [[prefs objectForKey:@"lpmOnThreshold"] boolValue] : lpmThresholdEnabled;
     lpmChargingEnabled = [prefs objectForKey:@"lpmOnCharging"] ? [[prefs objectForKey:@"lpmOnCharging"] boolValue] : lpmChargingEnabled;
 	}

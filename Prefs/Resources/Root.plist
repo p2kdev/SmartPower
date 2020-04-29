@@ -46,6 +46,23 @@
 				<string>com.p2kdev.smartpower.settingschanged</string>
 			</dict>
 
+			<dict>
+				<key>cell</key>
+				<string>PSEditTextCell</string>
+				<key>defaults</key>
+				<string>com.p2kdev.smartpower</string>
+				<key>detail</key>
+				<string>PSDetailController</string>
+				<key>key</key>
+				<string>lpmOffThreshold</string>
+				<key>label</key>
+				<string>Turn-Off LPM at</string>
+				<key>default</key>
+				<string>79</string>
+				<key>PostNotification</key>
+				<string>com.p2kdev.smartpower.settingschanged</string>
+			</dict>
+
 
 			<dict>
 				<key>cell</key>
