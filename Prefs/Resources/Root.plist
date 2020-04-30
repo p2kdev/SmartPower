@@ -11,7 +11,7 @@
 				<key>cell</key>
 				<string>PSGroupCell</string>
 				<key>label</key>
-				<string>Auto LPM Threshold</string>
+				<string>Auto LPM ON/OFF</string>
 			</dict>
 
 			<dict>
@@ -24,7 +24,7 @@
 				<key>key</key>
 				<string>lpmOnThreshold</string>
 				<key>label</key>
-				<string>Auto LPM on Threshold</string>
+				<string>Enabled</string>
 				<key>PostNotification</key>
 				<string>com.p2kdev.smartpower.settingschanged</string>
 			</dict>
@@ -39,7 +39,7 @@
 				<key>key</key>
 				<string>lpmThreshold</string>
 				<key>label</key>
-				<string>LPM Threshold</string>
+				<string>Turn-On LPM at</string>
 				<key>default</key>
 				<string>40</string>
 				<key>PostNotification</key>
